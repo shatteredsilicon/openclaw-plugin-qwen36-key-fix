@@ -1,0 +1,23 @@
+{
+  "name": "qwen36-key-fix",
+  "version": "1.0.0",
+  "description": "Strips spurious trailing colons from JSON keys in cron tool params (Qwen 3.6 function-calling quirk)",
+  "type": "module",
+  "main": "./dist/index.js",
+  "files": [
+    "dist/",
+    "src/",
+    "openclaw.plugin.json"
+  ],
+  "scripts": {
+    "build": "mkdir -p dist && cp src/index.ts dist/index.js && sed -i 's/: unknown//g; s/: Record<string, unknown>//g; s/ as Record<string, unknown>//g' dist/index.js"
+  },
+  "openclaw": {
+    "extensions": ["./src/index.ts"],
+    "runtimeExtensions": ["./dist/index.js"],
+    "compat": {
+      "pluginApi": ">=2026.5.4",
+      "minGatewayVersion": "2026.5.4"
+    }
+  }
+}
