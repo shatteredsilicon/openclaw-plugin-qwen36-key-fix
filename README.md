@@ -1,6 +1,6 @@
 # openclaw-qwen36-key-fix
 
-Workaround for the Qwen 3.6 function-calling quirk where certain JSON keys get a spurious trailing colon (e.g. `"name:"` instead of `"name"`).
+Workaround for the Qwen 3.6 function-calling quirk where certain JSON keys get a spurious trailing colon or space (e.g. `"name:"` instead of `"name"`).
 
 ## Problem
 
@@ -17,11 +17,11 @@ Qwen 3.6 sometimes produces malformed tool call arguments:
 }
 ```
 
-This causes OpenClaw's parameter validation to fail because the schema expects keys without trailing colons.
+This causes OpenClaw's parameter validation to fail because the schema expects keys without trailing colons, spaces, or other non-alphanumeric characters.
 
 ## Solution
 
-This plugin hooks `before_tool_call` for the `cron` tool and recursively strips trailing colons from JSON keys before validation.
+This plugin hooks `before_tool_call` for the `cron` tool and recursively strips trailing colons, spaces and other non-alphanumeric characters from JSON keys before validation.
 
 ## Install
 

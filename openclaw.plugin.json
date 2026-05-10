@@ -1,7 +1,7 @@
 {
   "id": "qwen36-key-fix",
   "name": "Qwen 3.6 Key Fix",
-  "description": "Strips spurious trailing colons from JSON keys in cron tool params (Qwen 3.6 function-calling quirk)",
+  "description": "Strips spurious trailing non-alphanumerical characters from JSON keys in cron tool params (Qwen 3.6 function-calling quirk)",
   "activation": {
     "onStartup": true
   },
