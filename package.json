@@ -1,6 +1,6 @@
 {
   "name": "qwen36-key-fix",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Strips spurious trailing non-alphanumerical characters from JSON keys in cron tool params (Qwen 3.6 function-calling quirk)",
   "type": "module",
   "main": "./dist/index.js",
